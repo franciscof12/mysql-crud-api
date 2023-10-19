@@ -2,6 +2,8 @@ version: '3'
 
 services:
   app:
+    container_name: crudapi
+    restart: always
     build: .
     ports:
       - "8080:8080"
@@ -12,11 +14,14 @@ services:
     container_name: cruddb
     restart: always
     environment:
-      MYSQL_DATABASE: mydatabase
+      MYSQL_DATABASE: gofiberddbb
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: mydbuser
       MYSQL_PASSWORD: mydbpassword
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
-      - "./data/db/mysql:/var/lib/mysql" 
+      - mysql:/var/lib/mysql 
+
+volumes:
+  mysql:
