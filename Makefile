@@ -6,3 +6,7 @@ run: build
 
 test:
 	@go test -v ./...
+
+up:
+	@docker-compose up
+	
